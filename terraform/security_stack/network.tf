@@ -94,7 +94,6 @@ resource "aws_subnet" "sec_natgw_subnet" {
 
 resource "aws_eip" "natgw_eip" {
   count = length(var.availability_zones)
-  vpc = true
   depends_on = [aws_vpc.sec_vpc]
 }
 
