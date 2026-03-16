@@ -27,7 +27,6 @@ resource "aws_network_interface" "fw-data-eni" {
 
 resource "aws_eip" "fw-mgmt-eip" {
   count = length(var.availability_zones)
-  vpc               = true
   network_interface = aws_network_interface.fw-mgmt-eni[count.index].id
   tags = {
     Name = "fw-mgmt-eip-${var.availability_zones[count.index]}-${random_id.deployment_id.hex}"
