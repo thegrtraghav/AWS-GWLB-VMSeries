@@ -43,10 +43,10 @@ resource "aws_eip" "fw-mgmt-eip" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Config SSH KEY for instance login
-resource "aws_key_pair" "fw-ssh-keypair" {
+/*resource "aws_key_pair" "fw-ssh-keypair" {
   key_name   = "ssh-key-${random_id.deployment_id.hex}"
   public_key = var.public_key
-}
+}*/
 
 # Config IAM role with policy
 resource "aws_iam_role" "fw-iam-role" {
@@ -146,7 +146,7 @@ resource "aws_instance" "firewall_instance" {
   iam_instance_profile = aws_iam_instance_profile.iam-instance-profile.id
   user_data = "mgmt-interface-swap=enable\nplugin-op-commands=aws-gwlb-inspect:enable\n${var.user_data}"
 
-  key_name        = aws_key_pair.fw-ssh-keypair.key_name
+  key_name        = "gwlb-16m"
   tags = {
     Name = "FW-${var.availability_zones[count.index]}-${random_id.deployment_id.hex}"
   }
