@@ -6,7 +6,7 @@
 access_key = ""
 secret_key = ""
 region = "us-east-1"
-availability_zone = ""us-east-1a", "us-east-1b"
+availability_zone = "us-east-1a"
 vpc_cidr = "10.1.0.0/16"
 ssh_key_name = "gwlb-16m"
 
