@@ -5,12 +5,12 @@
 
 access_key = ""
 secret_key = ""
-region = ""
-availability_zones = ["", ""]
+region = "us-east-1"
+availability_zones = ["us-east-1a", "us-east-1b"]
 vpc_cidr = "10.0.0.0/16"
-firewall_ami_id = ""
+firewall_ami_id = "ami-0a78a81ba3973c82b"
 transit_gw_id = ""
-ssh_key_name = "palo-16"
+ssh_key_name = "gwlb-16m"
 
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
