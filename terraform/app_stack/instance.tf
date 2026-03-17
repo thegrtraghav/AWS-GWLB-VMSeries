@@ -30,10 +30,10 @@ resource "aws_eip" "app-mgmt-eip" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Config SSH KEY for instance login
-resource "aws_key_pair" "app-ssh-keypair" {
+/*resource "aws_key_pair" "app-ssh-keypair" {
   key_name   = "ssh-key-${random_id.deployment_id.hex}"
   public_key = var.public_key
-}
+}*/
 
 resource "aws_instance" "app_instance" {
   ami        = data.aws_ami.ubuntu.id
@@ -44,7 +44,7 @@ resource "aws_instance" "app_instance" {
     device_index         = 0
   }
   user_data = file("web_server.sh")
-  key_name        = aws_key_pair.app-ssh-keypair.key_name
+  key_name        = "gwlb-16m"
   tags = {
     Name = "app-${random_id.deployment_id.hex}"
   }
