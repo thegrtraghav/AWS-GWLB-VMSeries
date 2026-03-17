@@ -5,10 +5,10 @@
 
 access_key = ""
 secret_key = ""
-region = ""
-availability_zone = ""
+region = "us-east-1"
+availability_zone = ""us-east-1a", "us-east-1b"
 vpc_cidr = "10.1.0.0/16"
-public_key = ""
+ssh_key_name = "gwlb-16m"
 
 # Parameters to be filled in from Security Stack Deployment Output
 gwlbe_service_id = ""
