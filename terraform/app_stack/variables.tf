@@ -83,9 +83,10 @@ variable "sec_tgwa_route_table_id" {
   type = list
 }
 
-variable "public_key" {
-  description = "Public key string for AWS SSH Key Pair"
-  type = string
+variable "ssh_key_name" {
+  description = "Name of the SSH key pair existing in AWS key pairs and used to authenticate to VM-Series or test boxes"
+  type        = string
+  default     = ""
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
