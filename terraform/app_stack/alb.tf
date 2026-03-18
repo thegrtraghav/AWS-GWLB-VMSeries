@@ -5,7 +5,7 @@
 
 resource "aws_alb" "alb" {
   name            = "app-alb-${random_id.deployment_id.hex}"
-  subnets         = [data.aws_subnet.alb_subnet.id]
+  subnets         = data.aws_subnets.alb_subnet_ids.ids
   security_groups = [aws_security_group.app-sg.id]
   internal        = false
   tags = {
