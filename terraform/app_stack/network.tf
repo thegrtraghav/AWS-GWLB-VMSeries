@@ -55,8 +55,11 @@ resource "aws_subnet" "alb_subnet" {
   depends_on = [aws_vpc.app_vpc]
 }
 
-data "aws_subnet" "alb_subnet" {
-  vpc_id = aws_vpc.app_vpc.id
+data "aws_subnets" "alb_subnet_ids" {
+  filter {
+    name   = "vpc-id"
+    values = [aws_vpc.app_vpc.id]
+  }
   tags = {
     UsedBy = "ALB"
   }
